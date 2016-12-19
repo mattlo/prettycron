@@ -102,6 +102,11 @@ if ((!moment || !later) && (typeof require !== 'undefined')) {
           hm.push(zeroPad(schedule['h'][i]) + ':' + zeroPad(schedule['m'][j]));
         }
       }
+
+      hm = hm.map(function (v) {
+        return moment(v, ["HH:mm"]).format("h:mm A");
+      });
+
       if (hm.length < 2) {
         output_text = hm[0];
       } else {
